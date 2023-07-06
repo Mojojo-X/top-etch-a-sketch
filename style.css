@@ -1,6 +1,6 @@
 .grid-container {
     display: grid;
-    width: 750px;
-    height: 750px;
+    width: 900px;
+    height: 900px;
     border: rgba(0,0,0,1) solid 3px;
 }
