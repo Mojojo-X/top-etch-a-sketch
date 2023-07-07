@@ -1,5 +1,6 @@
 const gridContainer = document.querySelector('.grid-container');
 const createGridBtn = document.querySelector('#create-grid');
+const clearGridBtn = document.querySelector('#clear-grid');
 let squareColor = "black";
 
 function promptForDimensions() {
@@ -46,4 +47,14 @@ function updateGridDimensions(dimension) {
   gridContainer.style.gridTemplateColumns = `repeat(${dimension}, 1fr)`;
 }
 
+function clearGrid() {
+  const childDivs = Array.from(gridContainer.children);
+
+  childDivs.forEach((div) => {
+    div.style.removeProperty('background-color');
+  });
+
+}
+
 createGridBtn.addEventListener('click', createGridSquares);
+clearGridBtn.addEventListener('click', clearGrid);
