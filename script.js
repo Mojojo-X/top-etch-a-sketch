@@ -31,7 +31,10 @@ function createGridSquares() {
 
   for (let i = 0; i < totalSquares; i++) {
     let newSquare = document.createElement("div");
-    newSquare.addEventListener('mousedown', function () {
+    newSquare.addEventListener('click', function () {
+      this.style.backgroundColor = squareColor;
+    });
+    newSquare.addEventListener('dragenter', function () {
       this.style.backgroundColor = squareColor;
     });
     gridContainer.appendChild(newSquare);
