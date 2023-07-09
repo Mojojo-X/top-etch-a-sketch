@@ -4,3 +4,7 @@
     height: 900px;
     border: rgba(0,0,0,1) solid 3px;
 }
+
+.grid-container > * {
+    user-select: none;
+}

@@ -1,7 +1,15 @@
 const gridContainer = document.querySelector('.grid-container');
 const createGridBtn = document.querySelector('#create-grid');
 const clearGridBtn = document.querySelector('#clear-grid');
+const domBody = document.querySelector('body');
 let squareColor = "black";
+let mouseDown = false;
+
+createGridBtn.addEventListener('click', createGridSquares);
+clearGridBtn.addEventListener('click', clearGrid);
+domBody.addEventListener('mousedown', (e) => mouseDown = true);
+domBody.addEventListener('mouseup', (e) => mouseDown = false);
+
 
 function promptForDimensions() {
   const invalid = [NaN, 0];
@@ -32,12 +40,8 @@ function createGridSquares() {
 
   for (let i = 0; i < totalSquares; i++) {
     let newSquare = document.createElement("div");
-    newSquare.addEventListener('click', function () {
-      this.style.backgroundColor = squareColor;
-    });
-    newSquare.addEventListener('dragenter', function () {
-      this.style.backgroundColor = squareColor;
-    });
+    newSquare.addEventListener('mousedown', changeColor);
+    newSquare.addEventListener('mouseover', changeColor);
     gridContainer.appendChild(newSquare);
   }
 
@@ -56,5 +60,7 @@ function clearGrid() {
 
 }
 
-createGridBtn.addEventListener('click', createGridSquares);
-clearGridBtn.addEventListener('click', clearGrid);
+function changeColor(e) {
+  if (e.type === 'mouseover' && !mouseDown) return;
+  this.style.backgroundColor = squareColor;
+}
