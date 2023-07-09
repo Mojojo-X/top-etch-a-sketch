@@ -3,6 +3,7 @@
     width: 900px;
     height: 900px;
     border: rgba(0,0,0,1) solid 3px;
+    margin-top: 20px;
 }
 
 .grid-container > * {
